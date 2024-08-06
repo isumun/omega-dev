@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../Organizations/Organizations.css"
 import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
+import Header from "../../Companent/Header/Header";
+import Footer from "../../Companent/Footer/Footer";
 
 
 function Organizations() {
@@ -25,6 +27,7 @@ function Organizations() {
 
     return (
         <>
+        <Header/>
             <div className="container">
                 {Array.isArray(data) &&
                     data.map((job: Job, index: number) => (
@@ -102,6 +105,7 @@ className="label_title"
                         </a>
                     ))}
             </div>
+            <Footer/>
         </>
     );
 }
