@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../Organizations/Organizations.css"
+import "../Organizations/Organizations.css";
 import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
 import Header from "../../Companent/Header/Header";
 import Footer from "../../Companent/Footer/Footer";
-
 
 function Organizations() {
     const { data, isLoading } = useFetch({
@@ -27,7 +26,7 @@ function Organizations() {
 
     return (
         <>
-        <Header/>
+            <Header />
             <div className="container">
                 {Array.isArray(data) &&
                     data.map((job: Job, index: number) => (
@@ -93,7 +92,7 @@ function Organizations() {
                                     </div>
                                     <div className="ifno__type" data-v-6dc437e8>
                                         <h5
-className="label_title"
+                                            className="label_title"
                                             data-v-6dc437e8
                                         >
                                             <p>Видео</p>
@@ -105,7 +104,7 @@ className="label_title"
                         </a>
                     ))}
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
