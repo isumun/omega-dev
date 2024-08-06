@@ -6,15 +6,21 @@ import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
 
 function Vacancies() {
-  const { data, isLoading, refetch } = useFetch();
-  const [companyNames, setCompanyNames] = useState<string[]>([]);
+  const { data, isLoading } = useFetch({
+    url: "http://3.38.98.134/organizations",
+});
+const [, setCompanyNames] = useState<string[]>([]);
+console.log(data);
 
-  useEffect(() => {
+useEffect(() => {
     if (data.length > 0) {
-      const names = data.map((job: Job) => job.organization_name || 'Не указано');
-      setCompanyNames(names);
+        const names = data.map(
+            (job: Job) => job.organization_name || "Не указано"
+        );
+        setCompanyNames(names);
     }
-  }, [data]);
+}, [data]);
+
 
   if (isLoading) {
     return <div>Loading...</div>;

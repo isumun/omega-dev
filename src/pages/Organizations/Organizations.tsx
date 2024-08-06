@@ -104,9 +104,8 @@ function Organizations() {
                         </a>
                     ))}
             </div>
-            <Footer />
         </>
     );
 }
 
-export default Organizations;
+export default OrganizationItem;
