@@ -1,109 +1,289 @@
-.community-main .block[data-v-a2ede7f6] {
+.content__resources_resources_reources {
   display: flex;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-direction: column;
 }
-
-.community-main .heading[data-v-a2ede7f6] {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px 0;
-  font-size: 18px;
-  letter-spacing: 0.03em;
-}
-
-.community-main .heading .description[data-v-a2ede7f6] {
-  display: flex;
-  align-items: center;
-}
-
-button {
+.content__resources h4{
   font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.03em;
-  line-height: 38px;
-  padding: 0 25px;
-  min-width: 145px;
-  background: #6fcf97;
-  color: #fff;
-  border: none;
-}
-
-
-.community-main .block .title[data-v-a2ede7f6] {
+  font-size: 20px;
+  margin-bottom: 10px;
   flex: 1 1 100%;
   color: #a7b0c2;
   font-size: 24px;
-  letter-spacing: 0.03em;
+  letter-spacing: .03em;
   font-weight: 700;
   margin: 35px 0 25px;
 }
-.community-main .block .item {
+.devkg__block{
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  flex-wrap: wrap ;
 }
-.community-main .block .item .icon[data-v-a2ede7f6] {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+.devkg-block{
+  width: 282px;
+  border: none;
+  background: #007bff;
+  display: flex;
+  flex-wrap: wrap;
+  
 }
-
-.icon-devkg {
-  max-width: 30px;
-  height: 30px;
-}
-
-.community-main .block .item[data-v-a2ede7f6] {
-  position: relative;
-  flex: 0 0 270px;
-  margin-right: 13px;
-  height: 55px;
-  font-weight: 700;
-  margin-bottom: 13px;
-  padding-right: 8px;
-  color: #fff;
-  padding-left: 40px;
-  display: inline-flex;
+.devkg-block img{
+  display: flex;  
   align-items: center;
+  justify-content: center;
+  background: #4ba1f1;
+  font-size: 29px;
+  color: #ffffff; 
+  height: 55px;
+  width: 55px;
+}
+.devkg-block p {
+  color: #ffffff;
+  font-weight: 700;
   font-size: 16px;
+  margin: 17px 0px 0px 10px;
+}
+.telegram__chats__block{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.telgram-chats-block{
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #5c84f1;
+  display: flex;
 }
 
-.community-main .block.devkg .item[data-v-a2ede7f6] {
-  background: #0085ff;
+.telgram-chats-block span {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  background: #4ba1f1;
+  font-size: 29px;
+  color: #ffffff; 
+  height: 55px;
+  width: 55px;
 }
-.community-main .block.telegram_chats .item[data-v-a2ede7f6] {
-  background: #2ca5e0;
+
+.telgram-chats-block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
 }
-.community-main .block.telegram_channels .item[data-v-a2ede7f6] {
-  background: #2ca5e0;
+.telegram__chanels__block{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  
 }
-.community-main .block.websites .item[data-v-a2ede7f6] {
-  background: #6fcf97;
+.telgram-channels-block{
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #5c84f1;
+  display: flex;
 }
-.community-main .block.facebook .item[data-v-a2ede7f6] {
-  background: #3b5998;
+
+.telgram-channels-block span {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  background: #4ba1f1;
+  font-size: 29px;
+  color: #ffffff; 
+  height: 55px;
+  width: 55px;
 }
-.community-main .block.youtube .item[data-v-a2ede7f6] {
-  background: red;
+
+.telgram-channels-block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
 }
-.community-main .block.github .item[data-v-a2ede7f6] {
+
+.Communitycomponent-title {
+  margin: 35px 0 25px;
+  color: #a7b0c2;
+  font-size: 24px;
+  font-weight: 700;
+}
+.github__block{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.gitHub-block {
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #515151;
+  display: flex;
+}
+
+.gitHub-block span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  color: #ffffff;
   background: #262626;
+  height: 55px;
+  width: 55px;
 }
 
-@media (min-width: 0) and (max-width: 576px) {
-  .content {
-    padding: 10px;
+.gitHub-block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
+}
+.facebook__block{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.facebook-block {
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #445297;
+  display: flex;
+}
+
+.facebook-block span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  color: #ffffff;
+  background: rgb(34, 36, 99);
+  height: 55px;
+  width: 55px;
+}
+
+.facebook-block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
+}
+.website__block{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.website-block {
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #92e599;
+  display: flex;
+}
+
+.website-block span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  color: #ffffff;
+  background: rgb(111, 200, 111);
+  height: 55px;
+  width: 55px;
+}
+
+.website-block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
+}
+.youtube__block{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.youTube-block {
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #ff001e;
+  display: flex;
+}
+
+.youTube-block span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  color: #ffffff;
+  background: rgb(201, 1, 1);
+  height: 55px;
+  width: 55px;
+}
+
+.youTube-block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
+}
+.content__chats__resources_resources_reources {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.chat__chats__block {
+  width: 282px;
+  height: 55px;
+  border: none;
+  background: #0085ff;
+  display: flex;
+}
+
+.chat__chats__block span {
+  margin-top: 10px;
+  font-size: 29px;
+  color: #fff;
+  margin-left: 5px;
+}
+
+.chat__chats__block p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 17px 0px 0px 10px;
+}
+.CommunitycomponentChats-title {
+  margin: 35px 0 25px;
+  color: #a7b0c2;
+  font-size: 24px;
+  font-weight: 700;
+}
+@media screen and (max-width: 350px) {
+  .chat__chats__block p {
+      font-size: 14px;
   }
 }
 
-@media (min-width: 0) and (max-width: 500px) {
-  .community-main .heading .green[data-v-a2ede7f6] {
-    margin-top: 10px;
+
+@media screen and (max-width: 350px) {
+  .youTube-block p {
+      font-size: 14px;
   }
-  .community-main .block .title[data-v-a2ede7f6] {
-    margin-left: 0;
+  .website-block p {
+      font-size: 14px;
   }
-  .community-main .heading[data-v-a2ede7f6] {
-    flex-direction: column;
+  .chat__block p {
+    font-size: 14px;
+}
+.gitHub-block p {
+    font-size: 14px;
+}
+.facebook-block p {
+  font-size: 14px;
   }
 }

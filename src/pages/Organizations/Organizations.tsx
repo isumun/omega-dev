@@ -1,46 +1,117 @@
-import Footer from "../../Companent/Footer/Footer";
-import Header from "../../Companent/Header/Header";
-import "../Organizations/Organizations.css";
-import organizationsImg from "../../assets/Images/53fecf5935b721031f4f636b13bf18ae.webp";
+import React, { useEffect, useState } from "react";
+import "../Organizations/Organizations.css"
+import useFetch from "../../hooks/useFetch";
+import { Job } from "../../hooks/types";
 
-function Organizations() {
+function OrganizationItem() {
+    const { data, isLoading } = useFetch({
+        url: "http://3.38.98.134/organizations",
+    });
+    const [, setCompanyNames] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (Array.isArray(data) && data.length > 0) {
+            const names = data.map(
+                (job: Job) => job.organization_name || "Не указано"
+            );
+            setCompanyNames(names);
+        }
+    }, [data]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
-            <Header />
             <div id="organizations">
                 <div className="container">
-                    <div className="organizations">
-                        <div className="organizations-logo-block">
-                            <div className="organizations-img">
-                                <img src={organizationsImg} alt="" />
-                            </div>
-                            <div className="organizations-logo">
-                                <h5>
-                                    Компания
-                                    <h4>CodifyLab</h4>
-                                </h5>
-                            </div>
-                        </div>
-                        <div className="organizations-info">
-                            <div className="organizations-info-vacancies">
-                                <h5>Ваканции</h5>
-                                <h4>193</h4>
-                            </div>
-                            <div className="organizations-info-events">
-                                <h5>Мероприятия</h5>
-                                <h4>100</h4>
-                            </div>
-                            <div className="organizations-info-video">
-                                <h5>Видео</h5>
-                                <h4>0</h4>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    {Array.isArray(data) &&
+                        data.map((job: Job, index: number) => (
+                            <a
+                                key={index}
+                                href={`/ru/jobs/${job.slug}`}
+                                className="link"
+                            >
+                                <div
+                                    className="organization__content"
+                                    data-v-6dc437e8
+                                >
+                                    <div
+                                        className="content__info__one"
+                                        data-v-6dc437e8
+                                    >
+                                        <div
+                                            className="info__logo"
+                                            data-v-6dc437e8
+                                        >
+                                            {job.icon && (
+                                                <img
+                                                    src={job.icon}
+                                                    alt={`${job.name} logo`}
+                                                    className="image"
+                                                />
+                                            )}
+                                        </div>
+                                        <div
+                                            className="info__company"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Компания</p>
+                                                {job.name || "Не указано"}
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div className="content__info__two">
+                                        <div
+                                            className="info__position"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Ваканции</p>
+                                                {job.jobs_count}
+                                            </h5>
+                                        </div>
+                                        <div
+                                            className="info__price"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Мероприятия</p>
+                                                {job.events_count}
+                                            </h5>
+                                        </div>
+                                        <div
+                                            className="ifno__type"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Видео</p>
+                                                {job.meetups_count}
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
                 </div>
             </div>
-            <Footer />
         </>
     );
 }
 
-export default Organizations;
+export default OrganizationItem;
