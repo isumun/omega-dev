@@ -108,4 +108,4 @@ function Organizations() {
     );
 }
 
-export default OrganizationItem;
+export default Organizations;
