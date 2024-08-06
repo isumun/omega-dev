@@ -104,6 +104,7 @@ function Organizations() {
                         </a>
                     ))}
             </div>
+            <Footer />
         </>
     );
 }
