@@ -3,7 +3,7 @@ import "../Organizations/Organizations.css"
 import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
 
-function OrganizationItem() {
+function Organizations() {
     const { data, isLoading } = useFetch({
         url: "http://3.38.98.134/organizations",
     });
@@ -114,4 +114,4 @@ function OrganizationItem() {
     );
 }
 
-export default OrganizationItem;
+export default Organizations;
