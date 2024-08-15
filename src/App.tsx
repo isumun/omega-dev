@@ -7,6 +7,8 @@ import Video from "./pages/Video/Video";
 import Organizations from "./pages/Organizations/Organizations";
 import Community from "./pages/Сommunity/Community";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Sinup from "./pages/Sinup/Sinup";
+import AddVacancy from "./pages/AddVacancies/Addvacancies";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +35,15 @@ const router = createBrowserRouter([
         path: "/community",
         element: <Community />,
     },
-  
+
+    {
+        path: "/Sinup/:id",
+        element: <Sinup />,
+    },
+    {
+        path: "/AddVacancy",
+        element: <AddVacancy />,
+    },
 ]);
 
 function App() {
