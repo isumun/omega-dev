@@ -1,10 +1,10 @@
 export interface Job {
-  id: string;
-  organization_name: string;
-  organization_icon: string;
-  position: string;
+  id: number;
+  organization: string;
+  logo: string;
+  office: string;
   salary: string;
-  type: string;
+  jobType: string;
   city: string;
   created_at: string;
   updated_at: string;
