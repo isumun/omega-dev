@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import { Job } from "../../../hooks/types";
 
+
 function Hero() {
     const { data, isLoading } = useFetch({
         url: "http://3.38.98.134/events",

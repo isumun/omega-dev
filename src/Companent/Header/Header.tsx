@@ -3,12 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { SlArrowRightCircle } from "react-icons/sl";
 import { VscClose } from "react-icons/vsc";
 import "./Header.css";
-import ToComeIn from "../../pages/ToComeIn/ToComeIn";
 
 function Header() {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
     const navigate = useNavigate();
-
+    const navigateLogin = useNavigate();
     function logoHeader() {
         navigate("/");
     }
@@ -16,12 +15,8 @@ function Header() {
     function toggleBurgerMenu() {
         setIsBurgerOpen(!isBurgerOpen);
     }
-    const [modal, setModal] = useState(false);
-    function openModal() {
-        setModal(true);
-    }
-    function closeModal() {
-        setModal(false);
+    function clickLogin() {
+        navigateLogin("/Sinup/:id");
     }
 
     return (
@@ -93,24 +88,11 @@ function Header() {
                                 </Link>
                             </nav>
                         </div>
-                        <div
-                        style={{
-                            display: modal ? "block" : "none",
-                        }}
-                    >
-                        <ToComeIn closeModal={closeModal} />
-                    </div>
+                        
                         <div className="header__enter">
-                            {modal ? (
+                            
                                 <button
-                                    onClick={closeModal}
-                                    className="products"
-                                >
-                                    close
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={openModal}
+                                    onClick={clickLogin}
                                     className="products"
                                 >
                                     <span>
@@ -118,26 +100,19 @@ function Header() {
                                     </span>
                                     Войти
                                 </button>
-                             )}
+                            
                         </div>
                         <div className="header__enter__two">
-                        {modal ? (
+                    
                                 <button
-                                    onClick={closeModal}
-                                    className="products"
-                                >
-                                    close
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={openModal}
+                                    onClick={clickLogin}
                                     className="products"
                                 >
                                     <span>
                                         <SlArrowRightCircle />
                                     </span>
                                 </button>
-                             )}
+                            
                         </div>
                               
                     </div>

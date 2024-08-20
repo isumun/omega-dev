@@ -1,75 +1,86 @@
-import React, { useEffect, useState } from 'react';
-import Footer from "../../Companent/Footer/Footer";
-import Header from "../../Companent/Header/Header";
-import "./Vacancies.css";
+import React, { useEffect, useState } from "react";
+import "./Vacancies.css"
 import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
+import Header from "../../Companent/Header/Header";
+import Footer from "../../Companent/Footer/Footer";
 
 function Vacancies() {
-  const { data, isLoading, refetch } = useFetch();
-  const [companyNames, setCompanyNames] = useState<string[]>([]);
+    const { data, isLoading } = useFetch({
+        url: "http://3.38.98.134/events",
+    });
 
-  useEffect(() => {
-    if (data.length > 0) {
-      const names = data.map((job: Job) => job.organization_name || 'Не указано');
-      setCompanyNames(names);
+    const [, setCompanyNames] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (data.length > 0) {
+            const names = data.map(
+                (job: Job) => job.organization || "Не указано"
+            );
+            setCompanyNames(names);
+        }
+    }, [data]);
+
+    if (isLoading) {
+        return <div>Загрузка...</div>;
     }
-  }, [data]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+    const sortedData = [...data].sort((a, b) => Number(b.id) - Number(a.id));
 
-  return (
-    <>
-      <Header />
-      <div id="vacancies">
-        <div className="container">
-          <div className="vacancies__content">
-            {data.map((job: Job, index: number) => (
-              <a key={index} href={`/ru/jobs/${job.slug}`} className="link">
-                <div className="jobs-item content" data-v-6dc437e8>
-                  <div className="information" data-v-6dc437e8>
-                    <div className="jobs-item-field icon company" data-v-6dc437e8>
-                      {job.organization_icon && (
-                        <img src={job.organization_icon} alt={`${job.organization_name} logo`} className="image" />
-                      )}
-                    </div>
-                    <div className="jobs-item-field company" data-v-6dc437e8>
-                      <span className="label" data-v-6dc437e8>
-                        Компания
-                      </span>
-                      {job.organization_name || 'Не указано'}
-                    </div>
-                    <div className="jobs-item-field position" data-v-6dc437e8>
-                      <span className="label" data-v-6dc437e8>
-                        Должность
-                      </span>
-                      {job.position}
-                    </div>
-                    <div className="jobs-item-field price" data-v-6dc437e8>
-                      <span className="label" data-v-6dc437e8>
-                        Оклад
-                      </span>
-                      {job.salary}
-                    </div>
-                    <div className="jobs-item-field type" data-v-6dc437e8>
-                      <span className="label" data-v-6dc437e8>
-                        Тип
-                      </span>
-                      {job.type}
-                    </div>
-                  </div>
+    return (
+      <>
+      <Header/>
+        <div id="vacancies">
+            <div className="container">
+                <div className="vacancies__content">
+                    {sortedData.map((job: Job, index: number) => (
+                        <a
+                            key={index}
+                            href={`/JobPage/${job.id}`}
+                            className="link"
+                        >
+                            <div className="jobs-item content">
+                                <div className="information">
+                                    <div className="company__icon">
+                                        {job.logo && (
+                                            <img
+                                                src={job.logo}
+                                                alt={`${job.organization} logo`}
+                                                className="image"
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="information__title">
+                                        <div className="jobs-item-field type">
+                                            <h6>Тип</h6>
+                                            <p>{job.jobType}</p>
+                                        </div>
+                                        <div className="jobs-item-field company">
+                                            <h6>Компания</h6>
+                                            <p>
+                                                {job.organization ||
+                                                    "Не указано"}
+                                            </p>
+                                        </div>
+                                        <div className="jobs-item-field position">
+                                            <h6>Должность</h6>
+                                            <p>{job.office}</p>
+                                        </div>
+                                        <div className="jobs-item-field price">
+                                            <h6>Оклад</h6>
+                                            <p>{job.salary}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
                 </div>
-              </a>
-            ))}
-          </div>
-         
+            </div>
         </div>
-      </div>
-      <Footer />
-    </>
-  );
+        <Footer/>    
+      </>
+    );
 }
 
 export default Vacancies;
