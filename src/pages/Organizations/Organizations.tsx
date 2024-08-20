@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Organizations/Organizations.css";
-import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
+import useFetch from "../../hooks/useFetch";
 import Header from "../../Companent/Header/Header";
 import Footer from "../../Companent/Footer/Footer";
 
@@ -14,7 +14,7 @@ function Organizations() {
     useEffect(() => {
         if (Array.isArray(data) && data.length > 0) {
             const names = data.map(
-                (job: Job) => job.organization_name || "Не указано"
+                (job: Job) => job.organization || "Не указано"
             );
             setCompanyNames(names);
         }
@@ -104,7 +104,7 @@ function Organizations() {
                         </a>
                     ))}
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 }
