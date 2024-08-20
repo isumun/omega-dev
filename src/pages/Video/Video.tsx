@@ -1,168 +1,85 @@
-import "./Video.css";
-import Footer from "../../Companent/Footer/Footer";
+import React, { useEffect, useState } from "react";
+import useFetch from "../../hooks/useFetch";
+import { Job } from "../../hooks/types";
+import "../Video/Video.css";
 import Header from "../../Companent/Header/Header";
-import logo from "../../assets/Images/logo.jpg";
+import Footer from "../../Companent/Footer/Footer";
 
 
-function Video() {
-  return (
-    <>
-      <Header />
-      <div id="video">
-        <div className="container">
-          <div className="video">
-            <div className="video-add">
-              <button>Добавить видео</button>
+const Video: React.FC = () => {
+    const { data, isLoading } = useFetch({
+        url: "http://3.38.98.134/meetups",
+    });
+    const [, setCompanyNames] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (Array.isArray(data) && data.length > 0) {
+            const names = data.map(
+                (job: Job) => job.organization_name || "Не указано"
+            );
+            setCompanyNames(names);
+        }
+    }, [data]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+    return (
+        <>
+            <Header />
+            <div id="Video">
+                <div className="container">
+                    <div className="btn-vkb">
+                        <button>Добавить видео</button>
+                    </div>
+                    <div className="h11">
+                        <h1>Все видео</h1>
+                    </div>
+                    <div className="video">
+                        {Array.isArray(data) &&
+                            data.map((job: Job, index: number) => (
+                                <a
+                                    key={index}
+                                    href={`/ru/jobs/${job.slug}`}
+                                    className="link"
+                                >
+                                    <div
+                                        className="video__content"
+                                        style={{
+                                            backgroundImage: `url(${job.cover})`,
+                                        }}
+                                    >
+                                        <div className="video-df">
+                                            <div className="video-bg">
+                                                <div className="vs-video">
+                                                    <h1>{job.title}</h1>
+                                                    <div className="video-text">
+                                                        <h2>
+                                                            <span>
+                                                                Организатор
+                                                            </span>
+                                                            <br />
+                                                            {job.organization_name ||
+                                                                "Не указано"}
+                                                        </h2>
+                                                        <h2>
+                                                            <span>Когда</span>
+                                                            <br />
+                                                            {job.date}
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            ))}
+                    </div>
+                </div>
             </div>
-            <div className="video-title">
-              <h1>Все видео</h1>
-            </div>
-            <div className="video-block">
-              <div className="main-block">
-                <div className="first__block">
-                  <img src={logo} alt="img" />
-                  <div className="first__block-title">
-                    <h2>
-                      {" "}
-                      ChatGPT — революция или мода? Как <br />
-                      нейросети могут помочь в работе
-                    </h2>
-                  </div>
-                  <br />
-                  <div className="first__block-organizer">
-                    <span>Организатор</span>
-
-                    <h3> Kolesa Group</h3>
-                  </div>
-                  <div className="first__block-data">
-                    <span>Когда</span>
-                    <br />
-                    <h3>12 сентября 2023</h3>
-                  </div>
-                </div>
-              </div>
-              <div className="main-block">
-                <div className="first__block">
-                  <img src={logo} alt="img" />
-                  <div className="first__block-title">
-                    <h2>
-                      {" "}
-                      ChatGPT — революция или мода? Как <br />
-                      нейросети могут помочь в работе
-                    </h2>
-                  </div>
-                  <br />
-                  <div className="first__block-organizer">
-                    <span>Организатор</span>
-
-                    <h3> Kolesa Group</h3>
-                  </div>
-                  <div className="first__block-data">
-                    <span>Когда</span>
-                    <br />
-                    <h3>12 сентября 2023</h3>
-                  </div>
-                </div>
-              </div>
-              <div className="main-block">
-                <div className="first__block">
-                  <img src={logo} alt="img" />
-                  <div className="first__block-title">
-                    <h2>
-                      {" "}
-                      ChatGPT — революция или мода? Как <br />
-                      нейросети могут помочь в работе
-                    </h2>
-                  </div>
-                  <br />
-                  <div className="first__block-organizer">
-                    <span>Организатор</span>
-
-                    <h3> Kolesa Group</h3>
-                  </div>
-                  <div className="first__block-data">
-                    <span>Когда</span>
-                    <br />
-                    <h3>12 сентября 2023</h3>
-                  </div>
-                </div>
-              </div>
-              <div className="main-block">
-                <div className="first__block">
-                  <img src={logo} alt="img" />
-                  <div className="first__block-title">
-                    <h2>
-                      {" "}
-                      ChatGPT — революция или мода? Как <br />
-                      нейросети могут помочь в работе
-                    </h2>
-                  </div>
-                  <br />
-                  <div className="first__block-organizer">
-                    <span>Организатор</span>
-
-                    <h3> Kolesa Group</h3>
-                  </div>
-                  <div className="first__block-data">
-                    <span>Когда</span>
-                    <br />
-                    <h3>12 сентября 2023</h3>
-                  </div>
-                </div>
-              </div>
-              <div className="main-block">
-                <div className="first__block">
-                  <img src={logo} alt="img" />
-                  <div className="first__block-title">
-                    <h2>
-                      {" "}
-                      ChatGPT — революция или мода? Как <br />
-                      нейросети могут помочь в работе
-                    </h2>
-                  </div>
-                  <br />
-                  <div className="first__block-organizer">
-                    <span>Организатор</span>
-
-                    <h3> Kolesa Group</h3>
-                  </div>
-                  <div className="first__block-data">
-                    <span>Когда</span>
-                    <br />
-                    <h3>12 сентября 2023</h3>
-                  </div>
-                </div>
-              </div>
-              <div className="main-block">
-                <div className="first__block">
-                  <img src={logo} alt="img" />
-                  <div className="first__block-title">
-                    <h2>
-                      {" "}
-                      ChatGPT — революция или мода? Как <br />
-                      нейросети могут помочь в работе
-                    </h2>
-                  </div>
-                  <br />
-                  <div className="first__block-organizer">
-                    <span>Организатор</span>
-
-                    <h3> Kolesa Group</h3>
-                  </div>
-                  <div className="first__block-data">
-                    <span>Когда</span>
-                    <br />
-                    <h3>12 сентября 2023</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
-}
+            <Footer />
+        </>
+    );
+};
 
 export default Video;

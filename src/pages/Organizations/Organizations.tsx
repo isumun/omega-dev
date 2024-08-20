@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Organizations/Organizations.css";
-import useFetch from "../../hooks/useFetch";
 import { Job } from "../../hooks/types";
+import useFetch from "../../hooks/useFetch";
 import Header from "../../Companent/Header/Header";
 import Footer from "../../Companent/Footer/Footer";
 
@@ -104,6 +104,7 @@ function Organizations() {
                         </a>
                     ))}
             </div>
+            <Footer/>
         </>
     );
 }
