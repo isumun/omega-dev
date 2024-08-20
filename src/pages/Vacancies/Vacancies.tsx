@@ -27,6 +27,7 @@ function Vacancies() {
 
     const sortedData = [...data].sort((a, b) => Number(b.id) - Number(a.id));
 
+    
     return (
       <>
       <Header/>
