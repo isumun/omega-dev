@@ -37,7 +37,7 @@ function Vacancies() {
                     {sortedData.map((job: Job, index: number) => (
                         <a
                             key={index}
-                            href={`/JobPage/${job.id}`}
+                            href={`/VacanciesDelete/${job.id}`}
                             className="link"
                         >
                             <div className="jobs-item content">

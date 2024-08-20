@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "../AddVacancies/AddVacancies.css"
+import ".././AddVacancies/AddVacancies.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -42,31 +41,34 @@ function VacancyForm() {
         }));
     };
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
+    const api = "http://3.38.98.134/events";
+
+    async function handleSubmit(e: { preventDefault: () => void; }) {
         e.preventDefault();
+
         const updatedFormValues = {
             ...formValues,
             id: Date.now(),
             description,
         };
-        console.log("Form values:", updatedFormValues);
-        axios
-            .post(
-                "https://01de09931cc9286e.mokky.dev/allvakansies",
-                updatedFormValues
-            )
-            .then((res) => {
-                console.log(res.data);
-                navigate("/jobOpenings");
-            })
-            .catch((err) => {
-                console.error("Ошибка при отправке формы:", err);
-            });
-    };
 
-    const handleDescriptionChange = (value: React.SetStateAction<string>) => {
-        setDescription(value);
-        setText(value);
+        try {
+            await axios.post(api, updatedFormValues);
+            console.log(
+                "Форма маалыматтары ийгиликтүү сакталды:",
+                updatedFormValues
+            );
+
+            navigate("/vacancies");
+        } catch (error) {
+            console.error("Маалыматтарды сактоодо ката кетти:", error);
+        }
+    }
+
+    const handleDescriptionChange = (value: string) => {
+        const plainText = value.replace(/<\/?[^>]+(>|$)/g, "");
+        setDescription(plainText);
+        setText(plainText);
     };
 
     const toolbarOptions = [
@@ -128,23 +130,14 @@ function VacancyForm() {
                     }}
                     modules={modules}
                 />
-                <p>
-                    Здесь <strong>необходимо</strong> указать условия труда,
-                    требования и обязанности. <br />
-                    Также вы можете указать
-краткое описание компании, например:{" "}
-                    <br />
-                    <br />
-                    “В дружный отдел дизайна игровой студии ”Bloody Fun”
-                    требуется <br />
-                    проект менеджер со стажем”
-                </p>
+                <p>Описание компании и вакансии.</p>
             </div>
             <br />
             <br />
             <br />
 
-            <p className="contact">Telegram</p>
+            <p
+className="contact">Telegram</p>
             <div className="telegramVacancy">
                 <input
                     type="text"
@@ -154,9 +147,7 @@ function VacancyForm() {
                 />
                 <p>
                     <strong>Не обязательно</strong> заполнять все поля для
-                    контактов. Например, если у вас нет почты или вы не хотите
-                    оставлять свой телеграм, <br />
-                    <strong>оставьте поля пустыми.</strong>
+                    контактов.
                 </p>
             </div>
 
@@ -211,10 +202,7 @@ function VacancyForm() {
                         Стажировка (только Кыргызстан)
                     </option>
                 </select>
-                <p>
-                    Обязательное поле, в котором вы можете выбрать тип работы
-                    для вашей вакансии.
-                </p>
+                <p>Обязательное поле для выбора типа работы.</p>
             </div>
 
             <div className="form-buttons">

@@ -9,6 +9,7 @@ import Community from "./pages/Сommunity/Community";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sinup from "./pages/Sinup/Sinup";
 import AddVacancy from "./pages/AddVacancies/Addvacancies";
+import VacanciesDelete from "./pages/VacaniesDelete/VacanciesDelete";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,9 @@ const router = createBrowserRouter([
     {
         path: "/AddVacancy",
         element: <AddVacancy />,
+    },{
+        path: "/VacanciesDelete/:id",
+        element: <VacanciesDelete />,
     },
 ]);
 

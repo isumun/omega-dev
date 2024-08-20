@@ -1,6 +1,9 @@
 import React from "react";
 import "../AddVacancies/AddVacancies.css"
+import { useNavigate } from "react-router-dom";
 function LeftSidebar() {
+  const navigate = useNavigate()
+  navigate("/vacancies")
   return (
     <div className="left-add-vacancy_wrapper">
       <div className="logo">
@@ -21,7 +24,7 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAolBMV
           <a href="#">Видео</a>
         </li>
       </ul>
-      <a href="#" className="exit">
+      <a href="/vacancies" className="exit">
         Выйти
       </a>
     </div>
