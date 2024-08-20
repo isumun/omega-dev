@@ -12,7 +12,7 @@ function Hero() {
     useEffect(() => {
         if (data.length > 0) {
             const names = data.map(
-                (job: Job) => job.organization_name || "Не указано"
+                (job: Job) => job.organization || "Не указано"
             );
             setCompanyNames(names);
         }
@@ -47,7 +47,7 @@ function Hero() {
                                     <div className="hero__logo__organizer">
                                         <div className="hero-organizer">
                                             <p>Организатор</p>
-                                            <h4>{job.organization_name}</h4>
+                                            <h4>{job.organization}</h4>
                                         </div>
                                         <div className="hero-location">
                                             <p>Локация</p>
