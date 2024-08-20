@@ -25,7 +25,7 @@ function Vacancies() {
         return <div>Загрузка...</div>;
     }
 
-    const sortedData = [...data].sort((a, b) => b.id - a.id);
+    const sortedData = [...data].sort((a, b) => Number(b.id) - Number(a.id));
 
     return (
       <>
