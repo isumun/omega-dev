@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import ".././AddVacancies/AddVacancies.css"
+import ".././AddVacancies/AddVacancies.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function VacancyForm() {
     const [formValues, setFormValues] = useState({
-        logo: "",
-        organization: "",
-        office: "",
+        organization_icon: "",
+        organization_name: "",
+        position: "",
         telegram: "",
         skype: "",
         email: "",
@@ -33,7 +33,7 @@ function VacancyForm() {
         console.log("Текст сохранен:", text);
     };
 
-    const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleInputChange = (e: { target: { name: any; value: any } }) => {
         const { name, value } = e.target;
         setFormValues((prevValues) => ({
             ...prevValues,
@@ -41,9 +41,9 @@ function VacancyForm() {
         }));
     };
 
-    const api = "http://3.38.98.134/events";
+    const api = "http://3.38.98.134/jobs";
 
-    async function handleSubmit(e: { preventDefault: () => void; }) {
+    async function handleSubmit(e: { preventDefault: () => void }) {
         e.preventDefault();
 
         const updatedFormValues = {
@@ -85,16 +85,16 @@ function VacancyForm() {
             <p className="organization">Logo</p>
             <input
                 type="text"
-                name="logo"
-                value={formValues.logo}
+                name="organization_icon"
+                value={formValues.organization_icon}
                 onChange={handleInputChange}
             />
 
             <p className="organization">Организация</p>
             <input
                 type="text"
-                name="organization"
-                value={formValues.organization}
+                name="organization_name"
+                value={formValues.organization_name}
                 onChange={handleInputChange}
             />
 
@@ -102,8 +102,8 @@ function VacancyForm() {
             <div className="officeVacancy">
                 <input
                     type="text"
-                    name="office"
-                    value={formValues.office}
+                    name="position"
+                    value={formValues.position}
                     onChange={handleInputChange}
                 />
                 <p>Например “Junior C# Developer”</p>
@@ -136,8 +136,7 @@ function VacancyForm() {
             <br />
             <br />
 
-            <p
-className="contact">Telegram</p>
+            <p className="contact">Telegram</p>
             <div className="telegramVacancy">
                 <input
                     type="text"

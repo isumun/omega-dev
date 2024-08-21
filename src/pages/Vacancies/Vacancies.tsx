@@ -7,7 +7,7 @@ import Footer from "../../Companent/Footer/Footer";
 
 function Vacancies() {
     const { data, isLoading } = useFetch({
-        url: "http://3.38.98.134/events",
+        url: "http://3.38.98.134/jobs",
     });
 
     const [, setCompanyNames] = useState<string[]>([]);
@@ -43,10 +43,10 @@ function Vacancies() {
                             <div className="jobs-item content">
                                 <div className="information">
                                     <div className="company__icon">
-                                        {job.logo && (
+                                        {job.organization_icon && (
                                             <img
-                                                src={job.logo}
-                                                alt={`${job.organization} logo`}
+                                                src={job.organization_icon}
+                                                alt={`${job.organization_name} logo`}
                                                 className="image"
                                             />
                                         )}
@@ -59,13 +59,13 @@ function Vacancies() {
                                         <div className="jobs-item-field company">
                                             <h6>Компания</h6>
                                             <p>
-                                                {job.organization ||
+                                                {job.organization_name ||
                                                     "Не указано"}
                                             </p>
                                         </div>
                                         <div className="jobs-item-field position">
                                             <h6>Должность</h6>
-                                            <p>{job.office}</p>
+                                            <p>{job.position}</p>
                                         </div>
                                         <div className="jobs-item-field price">
                                             <h6>Оклад</h6>

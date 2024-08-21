@@ -2,8 +2,10 @@ export interface Job {
   logo: any;
   id: string;
   organization: string;
+  organization_name: string;
   organization_icon: string;
   position: string;
+  mountly:string;
   office: string;
   salary: string;
   jobType: string;
