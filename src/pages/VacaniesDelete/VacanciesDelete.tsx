@@ -6,10 +6,10 @@ import Header from "../../Companent/Header/Header";
 import Footer from "../../Companent/Footer/Footer";
 
 interface Vacancy {
-    logo: string;
+    organization_icon: string;
     id: string;
-    office: string;
-    organization: string;
+    position: string;
+    organization_name: string;
     salary: string;
     description: string;
     telegram: string;
@@ -27,7 +27,7 @@ function VacanciesDelete() {
 
     useEffect(() => {
         axios
-            .get(`http://3.38.98.134/events/${id}`)
+            .get(`http://3.38.98.134/jobs/${id}`)
             .then((response) => {
                 setVacancy(response.data.data);
             })
@@ -41,7 +41,7 @@ function VacanciesDelete() {
             e.stopPropagation();
 
             axios
-                .delete(`http://3.38.98.134/events/${id}`)
+                .delete(`http://3.38.98.134/jobs/${id}`)
                 .then(() => {
                     setVacancy(null);
                 })
@@ -69,16 +69,16 @@ function VacanciesDelete() {
             <div className="container">
                 <div className="job-list-container">
                     <div className="logo-office">
-                        <img src={vacancy.logo} alt="" />
+                        <img src={vacancy.organization_icon} alt="" />
                         <h2>
                             {" "}
                             <p>Компания</p>
-                            {vacancy.office}
+                            {vacancy.position}
                         </h2>
                     </div>
                     <div className="job__organization">
                         <h4>Организация </h4>
-                        <p>{vacancy.organization}</p>
+                        <p>{vacancy.organization_name}</p>
                     </div>
                     <div className="job__salary">
                         <h4>Оклад:</h4>
@@ -117,7 +117,7 @@ function VacanciesDelete() {
                                 </a>
                             )}
                         </p>
-<h4 className="email">E-Mail</h4>
+                        <h4 className="email">E-Mail</h4>
                         <p>
                             {vacancy.email && (
                                 <a

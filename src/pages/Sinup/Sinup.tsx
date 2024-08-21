@@ -10,8 +10,8 @@ const loginAPI = "http://3.38.98.134/auth/login";
 
 const Sinup = () => {
     const navigate = useNavigate();
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    const [userName, setUserName] = useState("islamseyitkulov@gmail.com");
+    const [password, setPassword] = useState("isko07");
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
