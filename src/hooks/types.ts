@@ -6,6 +6,7 @@ export interface Job {
   organization_icon: string;
   position: string;
   mountly:string;
+  type:string;
   office: string;
   salary: string;
   jobType: string;

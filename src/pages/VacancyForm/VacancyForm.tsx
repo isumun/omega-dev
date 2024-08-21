@@ -15,7 +15,7 @@ function VacancyForm() {
         email: "",
         salary: "",
         phone: "",
-        jobType: "",
+        type: "",
     });
     const [description, setDescription] = useState("");
     const [text, setText] = useState("");
@@ -178,8 +178,8 @@ function VacancyForm() {
             <div className="typeVacancy">
                 <select
                     className="multiselect__content"
-                    name="jobType"
-                    value={formValues.jobType}
+                    name="type"
+                    value={formValues.type}
                     onChange={handleInputChange}
                 >
                     <option value="" disabled>

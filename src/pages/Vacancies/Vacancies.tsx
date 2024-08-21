@@ -54,7 +54,7 @@ function Vacancies() {
                                     <div className="information__title">
                                         <div className="jobs-item-field type">
                                             <h6>Тип</h6>
-                                            <p>{job.jobType}</p>
+                                            <p>{job.type}</p>
                                         </div>
                                         <div className="jobs-item-field company">
                                             <h6>Компания</h6>

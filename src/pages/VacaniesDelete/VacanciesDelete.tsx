@@ -16,7 +16,7 @@ interface Vacancy {
     skype: string;
     email: string;
     phone: string;
-    jobType: string;
+    type: string;
 }
 
 function VacanciesDelete() {
@@ -86,7 +86,7 @@ function VacanciesDelete() {
                     </div>
                     <div className="job__type">
                         <h4>Тип </h4>
-                        <p>{vacancy.jobType}</p>
+                        <p>{vacancy.type}</p>
                     </div>
                     <div className="job__description">
                         <h4 className="job__description">Описание:</h4>
